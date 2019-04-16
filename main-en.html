@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<head>
+	<title>WithCampus</title>
+	<meta charset="utf-8">
+	<script src="js/jquery-3.4.0.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<link rel="stylesheet" href="css/tagtag.css" type=text/css >
+	<link rel="stylesheet" href="css/listitems.css" type=text/css >
+	<script src="js/tagen.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<script src="js/socket.io.js"></script>
+	<script src="js/md5.min.js"></script>
+	<link href="pics/favicon.ico" rel="shortcut icon">
+</head>
+
+<body>
+<input id = "realwritetag" style="display:none;" value=",English,">
+<input id = "delfriendlist" style="display:none;">
+<input id = "denyfriendlist" style="display:none;">
+<input id = "accfriendlist" style="display:none;">
+<input id = "delmsglist" style="display:none;">
+<input id = "sfr" style="display:none;">
+
+<div contentEditable="false" id ="faketitleget" style="display:none;"></div>
+<div contentEditable="false" id ="faketitlesend" style="display:none;"></div>
+
+<div id="wrap">
+	
+<div id="headerbox">
+	<div id="header1">
+		<div id="logo" onclick="location.href='/';">
+			<img src="pics/logo.png" style="height:80px; width: 80px;"/>
+		</div>
+		<div id="schoolName" onclick="location.href='/';">
+			<font size="5" color="#990000">WithCampus</font><br>
+			<font size="3" color="#000000">Stony Brook University</font>
+		</div>
+		<ul id="menu">
+			<li class="menu">Board</li>
+			<a href="#" onclick="alert('Working on API...');">
+				<li class="menu">Class</li>
+			</a>
+			<a href="#" onclick="alert('Working on API...');">
+				<li class="menu">Dining</li>
+			</a>
+			<a href="#" onclick="alert('Log in to add friends!');">
+				<li class="menu">Friends</li>
+			</a>
+			<a href="#" onclick="alert('Only for Stony Brook yet!');">
+				<li class="menu">Schools</li>
+			</a>
+		</ul>
+	</div>
+</div>
+
+<div id="header2">
+	<input type="text" name="newtag" id="newtag" maxlength="20" value="" style="margin: 5px; width:150px;">
+	<a href="#" id="ntb" class="ttnbtn" style="width:70px;height:20px;font-size:15px;" >add tag</a>
+	<a href="#" id="merge" class="ttnbtn" style="width:45%; float: left;">merge</a>
+	<a href="#" id="erase" class="ttnbtn" style="width:45%; float: right;">remove selected</a>
+	<div id="tagbox">
+		<ul id="taglist">
+		</ul>
+	</div>
+	
+</div>
+
+<div id="bodybox">
+
+	<div id="Fullscreen">
+		<img src="" />
+	</div>
+	
+	<!--LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL-->
+	<div id="login" title="LOGIN" style="display: none;">
+		<form>
+			<fieldset>
+				<label for="logid">ID</label>
+				<input type="text" name="logid" id="logid" maxlength="32" class="text ui-widget-content ui-corner-all" style="float:right;"><br><br>
+				<label for="logpw">PW</label>
+				<input type="password" name="logpw" id="logpw" maxlength="32" class="text ui-widget-content ui-corner-all" style="float:right;" ><br>
+				<br>
+				<br>
+				<a href="#" id="resetpw" class="ttnbtn" style="float: left; width: 58%;">find password</a>
+				<a href="#" id="logup" class="ttnbtn" style="float: right; width: 38%;">login</a>
+			</fieldset>
+		</form>
+	</div>
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+	
+	<!--RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR-->
+	<div id="reset" title="FIND PASSWORD" style="display: none;">
+		<form>
+			<!-- -->
+			<img id = "resetting" src="pics/loading.gif" style = "display:none;">
+			<fieldset>
+				<label for="curid">ID</label>
+				<input type="text" name="curid" id="curid" maxlength="32" class="text ui-widget-content ui-corner-all" style="width: 100%;"><br><br>
+				<label for="curmail">Mail Address</label>
+				<input type="email" name="curmail" id="curmail" maxlength="50" class="text ui-widget-content ui-corner-all" style="width: 100%;"><br>
+				<br>
+				<br>
+				<a href="#" id="pwset" class="ttnbtn" style="width: 100%;">find password</a>
+			</fieldset>
+		</form>
+	</div>
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+	
+	
+	<!--SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS-->
+	<div id="signin" title="SIGN UP" style="display: none;">
+		<form>
+			<img id = "loading" src="pics/loading.gif" style = "display:none;">
+			<fieldset>
+				<label for="signid">ID</label>
+				<input type="text" name="signid" id="signid" maxlength="32" class="text ui-widget-content ui-corner-all" style="width: 100%;"><br>
+				<label for="signname">Username</label>
+				<input type="text" name="signname" id="signname" maxlength="32" class="text ui-widget-content ui-corner-all" style="width: 100%;"><br>
+				<label for="upass">Password</label>
+				<input type="password" name="upass" id="upass" maxlength="32" class="text ui-widget-content ui-corner-all" style="width: 100%;"><br>
+				<label for="check">Password Check</label>
+				<input type="password" name="passcheck" id="passcheck" maxlength="32" class="text ui-widget-content ui-corner-all" style="width: 100%;"><br>
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" maxlength="50" class="text ui-widget-content ui-corner-all" style="width: 100%;"><br>
+				<br>
+				<a href="#" id="signup" class="ttnbtn" style="width: 100%;">sign up</a>
+			</fieldset>
+		</form>
+	</div>
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+	
+	
+	<!--OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-->
+
+	<div id="mydialog" title="MY POSTS" style="overflow: hidden; display: none;">
+		<form>
+			<ul id="mylist">
+			</ul>
+			<a href="#" id="mymore" class="ttnbtn" style="width: 99%; margin-top: 10px;">load more</a>
+		</form>
+	</div>
+
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+	
+	
+	<!--NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+
+	<div id="notedialog" title="NOTIFICATIONS" style="overflow: hidden; display: none;">
+		<form>
+			<ul id="notelist">
+			</ul>
+		</form>
+	</div>
+
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+	
+	
+	
+	<!--MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM-->
+
+	<div id="messagedialog" title="MESSAGES" style="overflow: hidden; display: none;">
+		<form>
+			<div id = "message-rightbox">
+				<a href="#" id="sndmessage" class="ttnbtn" style="style: inline; float:right; width: 100%; margin-top: 100px;">send</a>
+				<a href="#" id="repmessage" class="ttnbtn" style="style: inline; float:right; width: 100%; margin-top: 100px;">reply</a>
+				<a href="#" id="delmessage" class="ttnbtn" style="style: inline; float:right; width: 100%; margin-top: 100px;">delete</a>
+			</div>
+			<ul id="messagelist">
+			</ul>
+		</form>
+	</div>
+	
+	<div id="messagesend" title="WRITE" style="overflow: hidden; display: none;">
+		<form>
+			<img id = "noting" src="pics/loading.gif" style = "display:none;">
+			<textarea maxlength="100" name="mmain" id= "mmain" style="font-size:25px; width:250px; height: 400px; overflow-y: auto; resize: none;"></textarea>
+			<ul id="sfrlist">
+			</ul>
+			<a href="#" id="msend" class="ttnbtn" style="float:left; width: 255px;">send</a>
+		</form>
+	</div>
+
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+
+
+
+	
+	<!--TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT-->
+
+	<div id="topdialog" title="TOP10" style="overflow: hidden; display: none;">
+		<form>			
+			<a href="#" id="todayen" class="ttnbtn">TOP10(today)</a>
+			<a href="#" id="weeken" class="ttnbtn">TOP10(week)</a>
+			<a href="#" id="todayworld" class="ttnbtn">WORLD(today)</a>
+			<a href="#" id="weekworld" class="ttnbtn">WORLD(week)</a>
+			<ul id="toplist">
+			</ul>
+		</form>
+	</div>
+
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+	
+	
+	<!--FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF-->
+	<div id="friendialog" title="FRIENDS" style="overflow: hidden; display: none;">
+		<form>
+			<div id = "frlis">
+				<label for="frlist"><strong>friends</strong></label>
+				<ul id="frlist">
+				</ul>
+				<a href="#" id="delfriend" class="ttnbtn" style="width: 95%;">delete</a>
+			</div>
+
+			<div id = "frreq">
+				<label for="reqlist"><strong>friend requests</strong></label>
+				<ul id="reqlist">
+				</ul>
+				<a href="#" id="accfriend" class="ttnbtn" style="width: 95%; margin-top: 5px;">accept</a>
+				<a href="#" id="denyfriend" class="ttnbtn" style="width: 95%; margin-top: 5px;">deny</a>				
+			</div>
+
+			<div id = "frsrc">
+				<strong>search</strong>
+				<div style="width: 100%; border-bottom: dotted #CCCCCC;"></div>
+				<br><br>
+				<label for="searchid"><strong>ID</strong></label>
+				<input type="text" name="searchid" id="searchid" maxlength="32" class="text ui-widget-content ui-corner-all" style="width: 80%; float: right;"><br>
+				<br>
+				<a href="#" id="searchfriend" class="ttnbtn" style="width: 95%; margin-left: 2px;">search</a>
+				<br><br><br>
+				<div id = "srb"><img id = "srp" src="pics/nobody.png"></div>
+				<div id="srn" style="text-align: center; display: block; font-size: 25px; width:145px; height:30px; margin: 0 auto; border: solid #003EFF; white-space: pre-line; overflow:hidden; word-wrap: break-word;"></div><br><br>
+
+				<a href="#" id="reqfriend" class="ttnbtn" style="width: 95%;">request</a>
+			</div>
+
+		</form>
+	</div>
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+	<!--WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW-->
+	<div id="write" title="NEW POST" style="display: none;">
+		<form>
+
+			<img id = "sending" src="pics/loading.gif" style = "display:none;"/>
+			<div id = "write-rightbox">
+				<label for="pupload" id="write-pupload" class="ttnbtn">
+				add image
+				</label>
+				<!-- -->
+				<input type="file" multiple id="pupload" accept="image/*" style="display: none;"/>
+				<div id = "write-picbox">
+				</div>
+				<input id="atag" type="text" style="width:100px;" maxlength="20" spellcheck="false">
+				<a href="#" id="atb" class="ttnbtn" style="width:35px;height:25px;font-size:15px;" >tag</a>
+				<ul id = "write-taglist">
+				</ul>
+				<a href="#" id="asend" class="ttnbtn">post</a>
+			</div>
+			<p>
+				<label for="atitle">title</label>
+				<input type="text" name="atitle" id="atitle" class="text ui-widget-content ui-corner-all" maxlength="100" style="width: 400px" spellcheck="false" value="">
+			</p>
+			<div contentEditable="true" name="amain" id="amain" spellcheck="false"></div>
+		</form>
+	</div>
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+	<!--VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV-->
+	<div id="view" style="display: none;">
+		<form>
+			<div id = "view-rightbox">
+				<br>
+				<img id = "view-p" src = "pics/default.png"/>
+				<div id = "view-n">nonmember</div>
+				<div id = "view-tagbox"></div>
+				<label for="ananan" style="margin-left: 30px;">post number</label>
+				<h3 id="ananan" style="width:145px; height: 22px; overflow: hidden; padding: 0px; margin: 0px; text-align: center;"></h3><br>
+				<label for="hits" style="margin-left: 60px;">hits</label>
+				<h3 id="hits" style="width:145px; height: 22px; overflow: hidden; padding: 0px; margin: 0px; text-align: center;"></h3><br>
+				<label for="tagup" style="margin-left: 45px;">upvotes</label>
+				<h3 id="tagup" style="width:145px; height: 22px; overflow: hidden; padding: 0px; margin: 0px; text-align: center;"></h3>
+				<br><br>
+				<label for="ttt" style="margin-left: 50px;">posted</label>
+				<h3 id="ttt" style="width:145px; height: 22px; overflow: hidden; padding: 0px; margin: 0px; text-align: center;"></h3><br>
+			</div>
+			<div contentEditable="false" name="aview" id="aview" spellcheck="false"></div>
+			<ul id ="view-cbox">
+			</ul>
+			<input type="text" name="com" id="com" value="" maxlength="200" style="width:600px;" spellcheck="false" >
+			<a href="#" id="cup" class="ttnbtn" style="width:50px;height:25px;font-size:15px;" >send</a>
+		</form>
+	</div>
+	<!--ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+
+
+
+
+
+	
+
+	
+	<div id="rightbox">
+		<div id="nonbox">
+			<p>
+			<a href="#" id="log_open" class="ttnbtn" style="font-size: 25px;">login</a>
+			</p>
+			<p>	
+			<a href="#" id="sign_open" class="ttnbtn" style="font-size: 25px;">sign up</a>
+			</p>
+		</div>
+		
+		<div id="inbox">
+			<div id = "profile">
+				<label for="profileup">
+					<img id = "propic"/>
+				</label>
+				<input type="file" id="profileup" accept="image/x-png, image/jpeg" style="display: none"/>
+			</div>
+			<a href="#" id="mylistbtn" class="ttnbtn">my posts</a>
+			<a href="#" id="note" class="ttnbtn">notes</a>
+			<a href="#" id="message" class="ttnbtn">messages</a>
+			<a href="#" id="friend" class="ttnbtn">friends</a>	
+			<a href="#" id="logout" class="ttnbtn">logout</a>
+		</div>
+		
+		
+		<a href="#" id="write_open" class="ttnbtn">post</a>
+		<a href="#" id="top10" class="ttnbtn">top 10</a>
+		<a href="#" id="search" class="ttnbtn">search</a>
+		
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	<div class = "ulbox" style="margin-left: 20px;">
+		<h3 style="border-bottom: 1px solid #cccccc;">BOARD</h3>
+		<ul id="abox">
+			
+			<div id = "morediv">
+				<a href="#" id="5more" class="ttnbtn" style="width: 100%;">load more</a>
+			</div>
+			<!--
+			<div class="clr"></div>
+			-->
+		</ul>
+	</div>
+	
+	<div class = "ulbox" style = "margin-left: 20px;">
+		<h3>TOP POSTS</h3>
+		<ul id="tbox">
+		</ul>
+	</div>
+	
+	<div class = "ulbox" style = "float: right; margin-right: 54px;	margin-top: 20px;">
+		<h3>FRIENDS' POSTS</h3>
+		<ul id="fbox">
+		</ul>
+	</div>
+</div>
+</div>
+
+	
+	<div id = "fakebox">
+	</div>
+
+<div id="npwdialog" style="display: none;">
+	<form>
+		<!-- --> 
+		<img id = "npwing" src="pics/loading.gif" style = "display:none;"/>
+		<label for="cpass">Please type in your current password.</label>
+		<input type="password" name="cpass" id="cpass" value="" maxlength="32" spellcheck="false" style="width:100%; margin-top: 10px;">
+		<br><br>
+		<label for="npass">Please type in your NEW password.</label>
+		<input type="password" name="npass" id="npass" value="" maxlength="32" spellcheck="false" style="width:100%; margin-top: 10px;">
+		<br><br>
+		<label for="npasscheck">Please type in your NEW password again.</label>
+		<input type="password" name="npasscheck" id="npasscheck" value="" maxlength="32" spellcheck="false" style="width:100%; margin-top: 10px;">
+		<br><br><br>
+		<a href="#" id="setpw" class="ttnbtn" style="width: 100%; font-size:20px;float:left;">set password</a>
+	</form>
+</div>
+
+<div id="leavedialog" style="display: none;">
+	<form>
+		<!-- --> 
+		<img id = "leaving" src="pics/loading.gif" style = "display:none;"/>
+		<h5>Your account will be removed.<br><br>Please type in your password.</h5>
+		<input type="password" name="lpass" id="lpass" value="" maxlength="32" spellcheck="false" >
+		<a href="#" id="lps" class="ttnbtn" style="width:50px;height:25px;font-size:15px;float:right;" >leave</a>
+	</form>
+</div>
+
+<div id="footer">
+	Contact: <a href="mailto:tagtimemaster@gmail.com">tagtimemaster@gmail.com</a> ©tagtime.net
+</div>
+
+</body>
+
+
+
+

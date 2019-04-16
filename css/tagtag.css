@@ -1,0 +1,1105 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+.clr{
+	clear: both;
+	font-size: 0;
+}
+
+.ttnbtn{
+	vertical-align: middle;
+	text-align: center;
+	border:1px solid #d9d9d9; 
+	font-size:20px;font-family:arial, helvetica, sans-serif; text-decoration:none; display:inline-block;
+	font-weight:bold; color: #000000;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+}
+
+
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ5.14.2016ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+html, body {
+	font-family: 'Lato', sans-serif;
+	width:100%;
+	height:100%;
+	margin:0px;
+	padding:0px;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+}
+
+
+
+#wrap {	min-height: 100%;}
+
+#main {overflow:auto;padding-bottom: 150px;}
+
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}
+#headerbox {
+	position: fixed;
+	display: block;
+	z-index: 1;
+	width: 100%;
+	background: #ffffff;
+	height: auto;
+	border-bottom: 1px solid #cccccc;
+}
+#header1 {
+	position: relative;
+	display: block;
+	margin: auto;
+	
+	
+	/*preventing from breaking to next line*/
+	white-space: nowrap;
+	overflow: hidden;
+	
+	top: 0;
+	left: 0;
+	width: 1160px;
+	background: #ffffff;
+	height: 80px;
+	text-align: center;
+	font-size: 13px;
+}
+#logo {
+	display: inline-block;
+	margin: auto;
+	float: left;
+	width:80px;
+	height:80px;
+}
+	#logo:hover {
+		cursor: pointer;
+	}
+#schoolName {
+	display: inline-block;
+	position: relative;
+	margin: auto;
+	float: left;
+	margin-top: 25px;
+	
+	margin-left: 10px;
+	width: auto;
+	height:80px;
+}
+	#schoolName:hover {
+		cursor: pointer;
+	}
+#menu {
+	white-space: nowrap;
+	position: relative;
+	display: inline-block;
+	margin: auto;
+	margin-right: 40px;
+	float: right;
+	width:auto;
+	height:100%;
+	list-style: none;
+}
+	.menu {
+		display: block;
+		position: relative;
+		cursor: pointer;
+		float: left;
+		
+		font-size: 20px;
+		color: #4d4d4d;
+		font-weight: bold;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 40px;
+		
+		margin: 20px;
+		width: 80px;
+	}
+	.menu:hover {
+		color: #990000;
+	}
+
+#header2 {
+	position: relative;
+	top: 80px;
+	left: 0;
+	width: 100%;
+	background: #f2f2f2;
+	height: 200px;
+	border-bottom: 1px solid #cccccc;
+	text-align: center;
+	font-size: 13px;
+	clear:both;
+}
+
+
+	#tagbox {
+		display: block;
+		margin: auto;
+		height: auto;
+		width: 1100px;
+	}
+	
+	
+		#taglist {
+			display: block;
+			margin:auto;
+			padding:0;
+			width: 900px;
+			height: auto;
+			max-height: 300px;
+			min-height: 100px;
+			
+			overflow: auto;
+			
+			background-color: #eaeaea;	
+			border: 1px solid #ccc;
+			overflow-y: auto;
+			overflow-x: hidden;
+			-moz-user-select: none;
+			-webkit-user-drag: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		#taglist li {
+			width: 100px;
+		}
+		/*
+			#taglist .ui-selecting { background: #FECA40; }
+			#taglist .ui-selected { background: #F39814; color: white; }
+		
+		#taglist li {
+			display: block;
+			white-space: nowrap;
+			overflow: hidden;
+			width: auto;
+			height: auto;
+			padding:0;
+			margin:0;
+			font-size: 15px;
+			background: #D7F5FF;
+			border-bottom: 1px dotted #000;
+		}
+
+
+*/
+
+
+
+#footer {
+	position: relative;
+	bottom: 0!important;
+	left: 0;
+	width: 100%;
+	background: #f2f2f2;
+	margin-top: -30px;
+	height: 30px;
+	border-top: 1px solid #cccccc;
+	text-align: center;
+	font-size: 13px;
+	clear:both;
+}
+
+
+
+
+
+#bodybox {
+	width: 1200px;
+	position: relative;
+	top: 80px;
+	display: block;
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+	overflow: hidden;
+	height: auto;
+	margin: auto;
+	/*border: 3px solid #000000;*/
+}
+#bodybox2 {
+	width: 600px;
+	position: absolute;
+	display: block;
+	margin-left: 100px!important;
+	
+	overflow: hidden;
+	height: auto;
+	margin: auto;
+	/*border: 3px solid #000000;*/
+}
+
+
+#rightbox { 
+	display: block;
+	float: left;
+	
+	
+	/*
+	position: fixed;	
+	right: 8%;*/
+	
+	margin-top: 20px;
+	 
+	height: auto;
+	width: 250px;
+	/*background: #f1f1f1;
+	 
+	border: 2px dotted #000000;*/ 
+	
+	border: 1px solid #cccccc;
+	background-color: #f2f2f2;
+	
+	
+}
+
+	#nonbox {
+		position: relative;
+		display: block;
+		float: right;
+		height: 130px;
+		width: 250px;
+		/*border: 1px solid #73AD21;*/
+	}
+	
+	#inbox {
+		display: none;
+		position: relative;
+		float: right;
+		height: 130px;
+		width: 250px;
+		/*border: 1px solid #73AD21;*/
+		/*background: #5F00FF;*/
+	}
+		#proname {
+			
+			display: block;
+			width: 90px;
+			height: auto;
+			margin: auto;
+			max-height: 32px;
+			padding-top: 1px;
+			/*background: #FFFA90;*/
+			border: 1px solid #d9d9d9;
+			
+			font-size: 15px;
+			font-weight: bold;
+			
+			vertical-align: middle;
+
+			text-align: center;
+			line-height: 16px;
+			cursor: pointer;
+			/*white-space: nowrap;*/
+
+			overflow: hidden;
+			word-wrap: break-word;
+			
+		}
+	
+		#profile {
+			float: right;
+			margin-right: 15px;
+			margin-top: 5px;
+			height: 95px;
+			width: 95px;
+		}
+		
+		#propic {
+			cursor: pointer;
+			width: 100%;
+			height: 100%;
+		}
+		
+		
+		#notelist {
+			float: left;
+			list-style-type: none;
+			margin:0;
+			padding:0;
+			width: 560px;
+			height: 530px;
+			font-size: 20px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			border: solid #000000;
+		}
+		
+			#notelist li {
+				display: inline-block;
+				overflow: hidden;
+				/*white-space: nowrap;*/
+				word-wrap: break-word;
+				border: solid #007FFF;
+				margin: 3px;
+				padding: 0.4em;
+				font-size: 15px;
+				min-height: 30px;
+				max-height: 100px;
+				width: 530px;
+			}
+		
+		
+		
+		
+				
+		#message-rightbox {
+			float: right;
+			margin:0;
+			padding:0;
+			width: 130px;
+			height: 530px;
+			overflow-y: auto;
+			border: solid #000000;
+		}
+
+		#messagelist {
+			float: left;
+			list-style-type: none;
+			font-size: 20px;
+			margin:0;
+			padding:0;
+			width: 420px;
+			height: 530px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			border: solid #000000;
+		}
+			#messagelist .ui-selecting { background: #FECA40; }
+			#messagelist .ui-selected { background: #F39814; color: white; }
+			#messagelist li {
+				display: inline-block;
+				overflow: hidden;
+				/*white-space: nowrap;*/
+				word-wrap: break-word;
+				border: solid #007FFF;
+				margin: 3px;
+				padding: 0.4em;
+				font-size: 15px;
+				min-height: 30px;
+				height: auto;
+
+				width: 380px;
+			}
+
+			
+
+		
+		#sfrlist {
+			list-style-type: none;
+			margin:0;
+			padding:0;
+			float: right;
+			font-size: 15px;
+			height: 440px;
+			width: 180px;
+			border: 1px solid #000000;
+		}
+			#sfrlist .ui-selecting { background: #FECA40; }
+			#sfrlist .ui-selected { background: #F39814; color: white; }
+			#sfrlist li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+
+		#toplist {
+			float: left;
+			list-style-type: none;
+			margin:0;
+			margin-top: 3px;
+			padding:0;
+			width: 610px;
+			height: 500px;
+			overflow-y: auto;
+			border: solid #000000;
+		}
+		
+		#mylist {
+			float: left;
+			list-style-type: none;
+			margin:0;
+			padding:0;
+			width: 610px;
+			height: 520px;
+			overflow-y: auto;
+			border: solid #000000;
+		}
+		
+		
+		#frlis {
+			float: left;
+			text-align: center;
+			height: 600px;
+			width: 180px;
+			border-right: dotted #CCCCCC;
+		}
+			#frlist {
+				float: left;
+				list-style-type: none;
+				margin:0;
+				padding:0;
+				width: 100%;
+				height: 470px;
+				border-top: dotted #CCCCCC;
+			}
+				#frlist .ui-selecting { background: #FECA40; }
+				#frlist .ui-selected { background: #F39814; color: white; }
+				#frlist li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+
+
+
+		#frreq {
+			float: left;
+			text-align: center;
+			height: 600px;
+			width: 180px;
+			border-right: dotted #CCCCCC;
+		}
+			#reqlist {
+				float: left;
+				list-style-type: none;
+				margin:0;
+				padding:0;
+				width: 100%;
+				height: 430px;
+				border-top: dotted #CCCCCC;
+			}
+				#reqlist .ui-selecting { background: #FECA40; }
+				#reqlist .ui-selected { background: #F39814; color: white; }
+				#reqlist li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+		
+		
+				
+		
+		#frsrc {
+			float: left;
+			text-align: center;
+			height: 600px;
+			width: 188px;
+			
+		}		
+			#srb {
+				
+				display: block;
+				margin: 0 auto;
+				height: 95px;
+				width: 95px;
+			}
+			
+			#srp {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+
+		
+	
+	
+
+	#log_open {
+		position: absolute;
+		top: 10px;
+		height: 50px;
+		width: 230px;
+		margin-left: 10px;
+	}
+
+	#sign_open {
+		position: absolute;
+		bottom: 10px;
+		height: 50px;
+		width: 230px;
+		margin-left: 10px;
+	}
+	
+	
+	#loading {
+		position: fixed;
+		display: block;
+		width: 265px;
+		height: 265px;		
+		background: black url("/pics/loading.gif"); center center no-repeat;
+		opacity: .5;
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	#sending {
+		position: fixed;
+		display: block;
+		width: 670px;
+		height: 635px;
+		background: black url("/pics/loading.gif"); center center no-repeat;
+		opacity: .3;
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	#noting {
+		position: fixed;
+		display: block;
+		width: 450px;
+		height: 420px;
+		background: black url("/pics/loading.gif"); center center no-repeat;
+		opacity: .5;
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	#resetting {
+		position: fixed;
+		display: block;
+		width: 180px;
+		height: 180px;
+		margin-left: 45px;
+		background: black url("/pics/loading.gif"); center center no-repeat;
+		opacity: .5;
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	#npwing {
+		position: fixed;
+		display: block;
+		width: 200px;
+		height: 200px;
+		margin-left: 40px;
+		margin-top: 30px;
+		background: black url("/pics/loading.gif"); center center no-repeat;
+		opacity: .5;
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	#leaving {
+		position: fixed;
+		display: block;
+		width: 100px;
+		height: 100px;
+		margin-left: 80px;
+		background: black url("/pics/loading.gif"); center center no-repeat;
+		opacity: .5;
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	
+	#write_open { 
+		
+		height: 50px;
+		width: 230px;
+		margin-top: 15px;
+		margin-bottom: 10px;
+		margin-left: 10px;
+	}
+		
+	#top10 { 
+		height: 50px;
+		width: 230px;
+		margin-left: 10px;
+		margin-bottom: 10px;
+	}
+	
+	#search { 
+		height: 50px;
+		width: 230px;
+		margin-left: 10px;
+		margin-bottom: 10px;
+	}
+	
+	
+	
+	#mylistbtn {
+		font-size: 15px;
+		position: absolute;
+		left: 3px;
+		bottom:103px;
+		width: 120px;
+	}
+	#note {
+		font-size: 15px;
+		position: absolute;
+		left: 3px;
+		bottom:78px;
+		width: 120px;
+	}
+	#message {
+		font-size: 15px;
+		position: absolute;
+		left: 3px;
+		bottom:53px;
+		width: 120px;
+	}
+	#friend {
+		font-size: 15px;
+		position: absolute;
+		left: 3px;
+		bottom:28px;
+		width: 120px;
+	}
+	#logout {
+		font-size: 15px;
+		position: absolute;
+		left: 3px;
+		bottom:3px;
+		width: 120px;
+	}
+
+	
+	
+#morediv {
+	display: block;
+	float: left;
+	width: 100%;
+
+}
+
+.ulbox {
+	height: auto;
+	border: 1px solid #cccccc;
+	background-color: #f2f2f2;
+	float: left;
+	/*
+	background: red;
+	*/
+	width: auto;
+	overflow: auto;
+	margin-top: 20px;
+}
+
+#abox {
+	display: inline-block;
+	list-style-type: none;
+	float: left;
+	height: auto;
+	width: 405px;
+	min-height: 450px;
+	padding: 10px;
+	background-color: #f2f2f2;
+}
+
+	.as {
+		display: inline-block;
+		border: 1px solid #cccccc;
+		box-shadow: 1px 1px 2px #888888;
+		width: 400px;
+		height: auto;
+		padding:0;
+		cursor: pointer;
+	}
+	
+		.ant {
+			font-family: Arial, Helvetica, sans-serif;
+			display: inline;
+			font-size: 17px;
+			float: left;
+			padding-left: 3px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			/*
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+			*/
+			line-height: 20px;
+			
+			border-bottom: 1px solid #CCCCCC;
+			width: 320px;
+			height: 25px;
+		}
+		
+		.ang {
+			font-family: Arial, Helvetica, sans-serif;	
+			font-size: 13px;
+			padding-left: 3px;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			float: left;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			-webkit-line-clamp: 2;
+			
+			color: #003EFF;
+			
+			line-height: 15px;
+
+			width: 320px;
+			height: auto;
+			max-height: 13px;
+		}
+		
+		.anb {
+			padding-right: 3px;
+			margin-top: 1px;
+			float: right;
+			width: 50px;
+			height: auto;
+		}
+		
+		.anp {
+			cursor: pointer;
+			float: right;
+			width: 32px;
+			height: 28px;
+		}
+		
+		.ann {
+			font-family: Arial, Helvetica, sans-serif;
+			display: block;
+			float: right;
+			font-size: 12px;
+			text-align: center;
+			
+			line-height: 12px;
+			margin-top: 1px;
+			margin-bottom: 1px;
+			
+			white-space: nowrap;
+			overflow: hidden;
+			
+			border: 2px solid #007FFF;
+						
+			width: 48px;
+			height: 12px;
+		}
+
+
+		#view-rightbox {
+			display: block;
+			float: right;
+			height: 450px;
+			width: 150px;
+			border: 1px solid #A2E8FF;
+			
+			background: #f1f1f1;
+			
+			-moz-user-select: none;
+			-webkit-user-drag: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		
+		#view-p {
+			display: block;
+			margin: auto;
+			width: 80px;
+			height: 80px;
+			-moz-user-select: none;
+			-webkit-user-drag: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		
+		#view-n {
+			display: block;
+			
+			margin: 10px auto;
+
+
+			font-size: 20px;
+			text-align: center;
+			
+			line-height: 22px;
+			
+			white-space: nowrap;
+			overflow: hidden;
+			
+			border: 1px solid #007FFF;
+						
+			width: 120px;
+			height: 25px;
+			max-height: 45px;
+		}
+		#view-tagbox {
+			display: block;
+			margin-top: 10px;
+			height: 40px; 
+			width: 145px; 
+			border: solid #A2E8FF;
+			word-wrap: normal;
+			overflow: auto;
+		}
+
+		
+		
+		#aview {
+			height: 420px;
+			width: 480px;
+			line-height: normal;
+			padding: .8em .5em;
+			border: solid #A2E8FF;
+			overflow: auto;
+			word-wrap: break-word;
+			
+		}
+		
+			.viewpics {
+				display: inline;
+				max-width: 100%;
+				height: auto;
+				padding:0;
+				margin:0;
+			}
+			
+			#Fullscreen {
+				/* 중앙으로 오게 할 수도 있다. 배경 없으면 */
+
+				height: 100%;
+				width: 100%;
+				background: rgba(0,0,0,0.4);
+
+				display: none;
+				position:fixed;
+				top:0;
+				right:0;
+				bottom:0;
+				left:0;
+				/**/
+				/*background: transparent center center no-repeat;
+				opacity: .5;*/
+				z-index: 999;
+			}
+
+			#Fullscreen img{
+				display: block;
+				margin: 0 auto;
+			}
+			
+			
+		#view-cbox {
+			display: block;
+			list-style-type: none;
+			float: left;
+			margin-top: 3px;
+			margin-bottom: 5px;
+			padding:0;
+			background: #F3FCFF;
+			height: 200px;
+			width: 665px;
+			border: 1px solid #A2E8FF;
+			
+			overflow: auto;
+			-moz-user-select: none;
+			-webkit-user-drag: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		
+			.vc {
+			/*.as처럼 별개로 만들어야 원하는 디자인이 가능하다. 타이 문자 처리. http://stackoverflow.com/questions/10414864/*/
+				display: inline-block;
+				border-bottom: 1px dotted #000;
+				width: 640px;
+				height: auto;
+				/*box-shadow: 1px 1px 2px #888888;*/
+			}
+			
+			.vcp {
+				/*cursor: pointer;*/
+				width: 40px;
+				height: 40px;
+
+				float: left;
+
+			}
+
+			.vcm {
+				display: block;
+				font-size: 15px;
+				font-weight: bold;
+				vertical-align: middle;
+				float: left;
+				padding-left: 3px;
+				word-wrap: break-word;
+					
+				overflow: hidden;
+		
+				
+				line-height: 15px;     /* fallback */
+				/*max-height: 32px;*/ 
+				
+				
+				/*border: 1px solid #CCCCCC;*/
+				width: 590px;
+			}
+			
+			
+			.vcn {
+				display: block;
+				font-size: 12px;
+				font-weight: bold;
+				
+				float: right;
+	
+				overflow: hidden;
+		
+				
+				line-height: 15px;     /* fallback */
+				/*max-height: 32px;*/ 
+				
+				
+				border: 1px solid #CCCCCC;
+				width: auto;
+			}
+
+
+#tbox {
+	display: inline-block;
+	list-style-type: none;
+	float: left;
+	height: auto;
+	width: 405px;
+	min-height: 450px;
+	margin-top: 20px; 
+	padding: 10px;
+	background-color: #f2f2f2;
+}
+#fbox {
+	display: inline-block;
+	list-style-type: none;
+	float: right;
+	height: auto;
+	width: 405px;
+	min-height: 450px;
+	
+	padding: 10px;
+	background-color: #f2f2f2;
+}
+
+
+
+
+
+
+
+/*글쓰기*/
+#amain {
+	height: 520px;
+	width: 450px;
+	line-height: normal;
+	padding: .8em .5em;
+	border: solid #A2E8FF;
+	word-wrap: break-word;
+	overflow: auto;
+}
+
+
+#write-rightbox { 
+	display: block; 
+	float: right; 
+	height: 600px; 
+	width: 150px;
+	border: 1px solid #A2E8FF;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+	#write-pupload { 
+		display: block; 
+		margin: auto; 
+		margin-top: 3px; 
+	}
+	
+	#write-picbox { 
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		height: 330px;
+		width: 150px;
+		
+		background-color: #eaeaea;
+		overflow: auto;
+	}
+		.write-pics {
+			display: block;
+			width: 100px;
+			height: 100px;
+			border: 1px solid #ccc;
+			background-color: #eaeaea;
+			margin: auto;
+			margin-top: 2px;
+			
+			-moz-user-select: none;
+			-webkit-user-drag: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		
+		#fakebox {
+			display: none;
+			list-style: none;
+			width: 100%;
+			height: auto;
+		}
+		
+		.fakepics {
+			display: inline;
+			max-width: 100%;
+			height: auto;
+			padding:0;
+			margin:0;
+		}
+		
+	
+		#write-taglist {
+			display: block;
+			list-style-type: none;
+			float: left;
+			margin:0;
+			padding:0;
+			width: 150px;
+			height: 180px;
+			background-color: #eaeaea;	
+			border: 1px solid #ccc;
+			
+			overflow-y: auto;
+			overflow-x: hidden;
+			-moz-user-select: none;
+			-webkit-user-drag: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		
+		#write-taglist li {
+			display: block;
+			white-space: nowrap;
+			overflow: hidden;
+			width: 150px;
+			height: 24px;
+			padding:0;
+			margin:0;
+			font-size: 16px;
+			background: #A2E8FF;
+			border-bottom: 1px dotted #000;
+		}
+
+	
+	#asend {
+		position: absolute;
+		display: block; 
+		margin: auto;
+		height: 30px;
+		width: 150px;
+		bottom: 30px;
+
+
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
